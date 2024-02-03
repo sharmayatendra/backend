@@ -1,11 +1,11 @@
-// import dotenv from "dotenv";
+const dotenv = require("dotenv").config();
 
-// import { connectDB } from "./db/index.js";
+import { connectDB } from "./db/index";
 
 // dotenv.config({
 //   path: "./env",
 // });
 
-// connectDB();
+connectDB();
 
-console.log("From index.ts file!!!");
+// console.log("From index.ts file!!!");
