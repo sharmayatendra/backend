@@ -8,6 +8,7 @@ interface IVideo extends Document {
   duration: number;
   views: number;
   isPublished: boolean;
+  owner: ObjectId;
 }
 
 const videoSchema: Schema<IVideo> = new Schema(
@@ -30,12 +31,19 @@ const videoSchema: Schema<IVideo> = new Schema(
     },
     duration: {
       type: Number,
+      required: true,
     },
     views: {
       type: Number,
+      default: 0,
     },
     isPublished: {
       type: Boolean,
+      default: true,
+    },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
     },
   },
   {
