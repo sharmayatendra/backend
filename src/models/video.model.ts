@@ -1,4 +1,5 @@
 import mongoose, { Schema, Document, model, Model, ObjectId } from "mongoose";
+import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
 
 interface IVideo extends Document {
   description: string;
@@ -50,6 +51,8 @@ const videoSchema: Schema<IVideo> = new Schema(
     timestamps: true,
   }
 );
+
+videoSchema.plugin(mongooseAggregatePaginate);
 
 interface IVideoModel extends Model<IVideo> {}
 
