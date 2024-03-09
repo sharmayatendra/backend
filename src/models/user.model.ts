@@ -1,4 +1,6 @@
 import mongoose, { Schema, Document, model, Model, ObjectId } from "mongoose";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 
 interface IUser extends Document {
   avatar: string;
