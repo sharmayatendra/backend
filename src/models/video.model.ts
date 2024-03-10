@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document, model, Model, ObjectId } from "mongoose";
+import { Schema, Document, model, Model, ObjectId } from "mongoose";
 import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
 
 interface IVideo extends Document {
