@@ -1,9 +1,14 @@
-import { asyncHandler } from "../utils/asyncHandler";
+import { Request, Response } from "express";
 
-const registerUser = asyncHandler(async (req, res) => {
-  res.status(200).json({
-    message: "OK",
-  });
-});
+import { asyncHandler } from "../utils/asyncHandler";
+import { IUser } from "../models";
+
+const registerUser = asyncHandler(
+  async (req: Request<{}, {}, IUser>, res: Response) => {
+    const { fullName, userName, email, password } = req.body;
+
+    console.log("email:::", email);
+  }
+);
 
 export { registerUser };
