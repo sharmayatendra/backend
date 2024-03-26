@@ -12,7 +12,7 @@ export const uploadFileOnCloudinary = async (filePath: string) => {
     if (!filePath) return null;
     // upload file on cloudinary
     const response = await cloudinary.uploader.upload(filePath, {
-      format: "auto",
+      format: "jpg",
     });
     console.log("file uploaded successfully", response);
     return response;

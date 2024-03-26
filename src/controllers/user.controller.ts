@@ -20,7 +20,7 @@ const registerUser = asyncHandler(
     }
 
     // checks if user is already registered
-    const existedUser = User.findOne({
+    const existedUser = await User.findOne({
       $or: [{ email }, { userName }],
     });
 
@@ -40,6 +40,7 @@ const registerUser = asyncHandler(
 
     if (!avatar) {
       throw new ApiError(400, "Avatar file is required");
+      throw new ApiError(400, "Avatar file is required🔴");
     }
 
     const user = await User.create({
@@ -51,7 +52,7 @@ const registerUser = asyncHandler(
       password,
     });
 
-    const createdUser = User.findById(user._id).select(
+    const createdUser = await User.findById(user._id).select(
       "-password -refreshToken"
     );
 
