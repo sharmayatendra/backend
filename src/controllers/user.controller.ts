@@ -40,7 +40,6 @@ const registerUser = asyncHandler(
 
     if (!avatar) {
       throw new ApiError(400, "Avatar file is required");
-      throw new ApiError(400, "Avatar file is required🔴");
     }
 
     const user = await User.create({
