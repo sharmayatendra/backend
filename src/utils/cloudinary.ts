@@ -14,7 +14,9 @@ export const uploadFileOnCloudinary = async (filePath: string) => {
     const response = await cloudinary.uploader.upload(filePath, {
       format: "jpg",
     });
-    console.log("file uploaded successfully", response);
+    // console.log("file uploaded successfully", response);
+    // unlink the file since its uploaded successfully
+    fs.unlinkSync(filePath);
     return response;
   } catch (error) {
     // remove the file from local if somehow it fails to upload on cloudinary
